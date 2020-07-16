@@ -1,5 +1,7 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 import logo from '~/assets/logo.png';
 
@@ -14,7 +16,7 @@ import {
   SignLinkText,
 } from './styles';
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
   return (
     <Background>
       <Container>
@@ -38,7 +40,7 @@ const SignIn = () => {
           <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
         </Form>
 
-        <SignLink onPress={() => {}}>
+        <SignLink onPress={() => navigation.navigate('SignUp')}>
           <SignLinkText>Criar conta gratuita</SignLinkText>
         </SignLink>
       </Container>
@@ -47,3 +49,7 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+SignIn.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
