@@ -1,13 +1,25 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
-const Stack = createStackNavigator();
+import Dashboard from './pages/Dashboard';
 
-const Routes = () => {
+const Stack = createStackNavigator();
+const BottomTab = createBottomTabNavigator();
+
+export default (isSigned = false) => {
+  function Dash() {
+    return (
+      <BottomTab.Navigator>
+        <BottomTab.Screen name="Dashboard" component={Dashboard} />
+      </BottomTab.Navigator>
+    );
+  }
+
   return (
     <NavigationContainer headerMode="none">
       <Stack.Navigator
@@ -15,11 +27,15 @@ const Routes = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignUp" component={SignUp} />
+        {isSigned ? (
+          <Stack.Screen name="Dashboard" component={Dash} />
+        ) : (
+          <>
+            <Stack.Screen name="SignIn" component={SignIn} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-export default Routes;
