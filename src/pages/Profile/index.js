@@ -4,8 +4,8 @@ import Background from '~/components/Background';
 
 // import { Container } from './styles';
 
-const Dashboard = () => {
+const Profile = () => {
   return <Background />;
 };
 
-export default Dashboard;
+export default Profile;
