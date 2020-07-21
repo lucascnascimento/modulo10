@@ -26,6 +26,21 @@ export default (isSigned = false) => {
             borderTopColor: 'transparent',
           },
         }}
+        screenOptions={({ route }) => ({
+          // eslint-disable-next-line react/prop-types
+          tabBarIcon: ({ color }) => {
+            let iconName;
+
+            if (route.name === 'Agendamento') {
+              iconName = 'event';
+            } else if (route.name === 'Meu Perfil') {
+              iconName = 'person';
+            }
+
+            // You can return any component that you like here!
+            return <Icon name={iconName} size={20} color={color} />;
+          },
+        })}
       >
         <BottomTab.Screen
           name="Agendamento"
