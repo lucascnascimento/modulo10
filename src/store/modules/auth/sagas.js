@@ -50,6 +50,11 @@ export function* signUp({ payload }) {
       password,
     });
 
+    Alert.alert(
+      'Você está cadastrado!',
+      'Seja bem vindo ao GoBarber! Vá até a página inicial e faça Login'
+    );
+
     // history.push('/');
   } catch (error) {
     Alert.alert(
@@ -71,13 +76,8 @@ export function setToken({ payload }) {
   }
 }
 
-export function signOut() {
-  // history.push('/');
-}
-
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
-  takeLatest('@auth/SIGN_OUT', signOut),
 ]);
