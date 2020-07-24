@@ -22,6 +22,10 @@ const Confirm = ({ route, navigation }) => {
     });
 
     navigation.navigate('Agendamento');
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'SelectProvider' }],
+    });
   }
 
   return (
