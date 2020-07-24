@@ -35,7 +35,22 @@ export default function scheduleNavigator({ navigation }) {
           ),
         }}
       />
-      <Stack.Screen name="SelectDateTime" component={SelectDateTime} />
+      <Stack.Screen
+        name="SelectDateTime"
+        component={SelectDateTime}
+        options={{
+          title: 'Selecione o horário',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('SelectProvider');
+              }}
+            >
+              <Icon name="chevron-left" size={20} color="#fff" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
       <Stack.Screen name="Confirm" component={Confirm} />
     </Stack.Navigator>
   );
