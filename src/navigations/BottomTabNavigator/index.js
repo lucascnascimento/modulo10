@@ -23,28 +23,15 @@ export default function bottomTabNavigator() {
           borderTopColor: 'transparent',
         },
       }}
-      screenOptions={({ route }) => ({
-        // eslint-disable-next-line react/prop-types
-        tabBarIcon: ({ color }) => {
-          let iconName;
-
-          if (route.name === 'Agendamento') {
-            iconName = 'event';
-          } else if (route.name === 'Meu Perfil') {
-            iconName = 'person';
-          }
-
-          // You can return any component that you like here!
-          return <Icon name={iconName} size={20} color={color} />;
-        },
-      })}
     >
       <BottomTab.Screen
         name="Agendamento"
         component={Dashboard}
-        tabBarIcon={({ color }) => (
-          <Icon name="event" size={20} color={color} />
-        )}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="event" size={20} color={color} />
+          ),
+        }}
       />
       <BottomTab.Screen
         name="Agendar"
@@ -59,9 +46,11 @@ export default function bottomTabNavigator() {
       <BottomTab.Screen
         name="Meu Perfil"
         component={Profile}
-        tabBarIcon={({ color }) => (
-          <Icon name="person" size={20} color={color} />
-        )}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="person" size={20} color={color} />
+          ),
+        }}
       />
     </BottomTab.Navigator>
   );

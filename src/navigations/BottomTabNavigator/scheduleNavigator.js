@@ -27,7 +27,7 @@ export default function scheduleNavigator({ navigation }) {
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Agendamento');
+                navigation.goBack();
               }}
             >
               <Icon name="chevron-left" size={20} color="#fff" />
@@ -43,7 +43,7 @@ export default function scheduleNavigator({ navigation }) {
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('SelectProvider');
+                navigation.goBack();
               }}
             >
               <Icon name="chevron-left" size={20} color="#fff" />
@@ -59,7 +59,7 @@ export default function scheduleNavigator({ navigation }) {
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('SelectDateTime');
+                navigation.goBack();
               }}
             >
               <Icon name="chevron-left" size={20} color="#fff" />
